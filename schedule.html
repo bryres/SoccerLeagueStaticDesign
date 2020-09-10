@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Summerville Rec Soccer - Schedule</title>
+</head>
+
+
+<body>
+
+<header>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="standings.html">Standings</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="standings.html">Standings</a></li>
+    <li><a href="login.html">Login</a></li>
+</ul>
+</header>
+
+<main>
+<div class="container">
+    <h3>Schedule: May 2-8</h3>
+    <h6><a href="">Prior Week</a>&nbsp&nbsp&nbsp&nbsp<a href="">Next Week</a></h6>
+    <table>
+        <thead>
+        <tr>
+            <th>League</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Field</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Score</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>Clovers</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Cubs</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Panthers</td>
+            <td>High School - East</td>
+            <td>May 2 (Sat)</td>
+            <td>08:30 AM</td>
+            <td>3-2</td>
+        </tr>
+        <tr>
+            <td>Clovers</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Rockets</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Bull Dogs</td>
+            <td>High School - West</td>
+            <td>May 2 (Sat)</td>
+            <td>08:30 AM</td>
+            <td>1-2</td>
+        </tr>
+        <tr>
+            <td>Clovers</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Labradors</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Lions</td>
+            <td>High School - East</td>
+            <td>May 2 (Sat)</td>
+            <td>10:30 AM</td>
+            <td>2-0</td>
+        </tr>
+        <tr>
+            <td>Dragons</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Rutt's Hut</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Biggies</td>
+            <td>High School - East</td>
+            <td>May 3 (Sat)</td>
+            <td>8:30 AM</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Dragons</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Steve's Autobody</td>
+            <td class="blue-text clickable" onclick="location='team.html'">Anne's Deli</td>
+            <td>High School - West</td>
+            <td>May 3 (Sat)</td>
+            <td>8:30 AM</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</main>
+
+<footer class="page-footer">
+        <div class="row">
+            <div class="col s5"><h6>Summerville Recreation Department</h6></div>
+            <div class="col s2"><h6 style="text-align: center">434-232-7676</h6></div>
+            <div class="col s5"><h6 style="text-align: right">rec@summerville.org</h6></div>
+        </div>
+</footer>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, {});
+    });
+</script>
+
+</body>
+
+</html>
+
+<!-- Query ideas
+
+select home.name as home_team, away.name as away_team, l.league_name, f.field_name,
+		DATE_FORMAT(game_dt, '%b %d (%a)') as game_date,
+		DATE_FORMAT(game_dt, '%h:%i %p') as game_time
+
+from league l, game g, team home, team away, field f
+where g.home_team_id = home.team_id
+and g.away_team_id = away.team_id
+and home.league_id = l.league_id
+and g.field_id = f.field_id
+order by league_name, game_dt
+
+-->
